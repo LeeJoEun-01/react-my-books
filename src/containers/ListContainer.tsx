@@ -4,12 +4,18 @@ import List from "../components/List";
 import { BookType, RootState } from "../types";
 // import { A as B } from "url"; => A를 B의 이름으로 가지고오다 
 import { getBooks as getBooksSagaStart } from "../redux/modules/books";
+import { logout as logoutSagaStart } from "../redux/modules/auth";
 
 export default function ListContainer() {
   const books = useSelector<RootState, BookType[] | null>(
     (state) => state.books.books);
+    
     const loading = useSelector<RootState, boolean>(
       (state) => state.books.loading
+    );
+
+    const error = useSelector<RootState, Error | null>(
+      (state) => state.books.error
     );
 
     const dispatch = useDispatch();
@@ -17,5 +23,10 @@ export default function ListContainer() {
     const getBooks = useCallback(() => {
       dispatch(getBooksSagaStart());
     }, [dispatch])
-  return <List books={books} loading={loading} getBooks={getBooks} />;
+
+    const logout = useCallback(() => {
+      dispatch(logoutSagaStart());
+    }, [dispatch]);
+    
+  return <List books={books} loading={loading} getBooks={getBooks} error={error} logout={logout} />;
 }

@@ -26,4 +26,10 @@ export interface RootState {
   router: Reducer<RouterState<unknown>, AnyAction>;
 }
 
-export interface BookType {}
+export interface BookType {
+  bookId: number;
+  title: string;
+  author: string;
+  createAt: string;
+  url: string;
+}

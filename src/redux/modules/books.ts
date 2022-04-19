@@ -1,7 +1,6 @@
 import { BooksState, BookType } from './../../types';
 import { createActions, handleActions } from "redux-actions";
-import { put, call } from 'redux-saga/effects';
-import { takeLatest, select } from 'redux-saga/effects';
+import { put, call, takeLatest, select  } from 'redux-saga/effects';
 import BookService from '../../services/BookService';
 
 const initialState: BooksState = {
@@ -12,7 +11,7 @@ const initialState: BooksState = {
 
 const prefix = "my-books/books";
 
-export const {pending, success, fail} = createActions(
+export const { pending, success, fail } = createActions(
   "PENDING",
   "SUCCESS",
   "FAIL",
@@ -37,7 +36,9 @@ export default reducer;
 
 //saga
 
-export const { getBooks } = createActions("GET_BOOKS", {prefix,});
+export const { getBooks } = createActions("GET_BOOKS", { 
+  prefix,
+});
 
 function* getBooksSaga() {
   try {

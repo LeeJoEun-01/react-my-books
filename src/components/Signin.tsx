@@ -37,7 +37,7 @@ const Signin: React.FC<SigninProps> = ({ login }) => {
             <div className={styles.signin_unerline} />
             <div className={styles.email_title}>
               Email
-              <span className={styles.required}> *</span>
+              <span className={styles.required}>*</span>
             </div>
             <div className={styles.input_area}>
               <Input
@@ -50,7 +50,7 @@ const Signin: React.FC<SigninProps> = ({ login }) => {
             </div>
             <div className={styles.password_title}>
               Passwoed
-              <span className={styles.required}> *</span>
+              <span className={styles.required}>*</span>
             </div>
             <div className={styles.input_area}>
               <Input
@@ -75,7 +75,6 @@ const Signin: React.FC<SigninProps> = ({ login }) => {
     //email과 password의 값을 꺼낸다.
     const email = emailRef.current!.state.value;
     const password = passwordRef.current!.state.value;
-
     login({ email, password });
   }
 };
