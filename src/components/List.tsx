@@ -42,7 +42,7 @@ const List: React.FC<ListProps> = ({ books, loading, getBooks, error, logout }) 
             title: "Book",
             dataIndex: "book",
             key: "book",
-            render: (text, record) => <Book {...record} />,
+            render: (text, record) => (<Book {...record} />),
           },
         ]}
         loading={books === null || loading}

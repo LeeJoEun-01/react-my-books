@@ -12,9 +12,10 @@ const Book: React.FC<BookProps> = ({
   bookId,
   title,
   author,
-  createAt,
+  createdAt,
   url,
-}) => (
+}) => {
+  return (
   <div className={styles.book}>
     <div className={styles.title}>
       <Link to={`/book/${bookId}`} className={styles.link_detail_title}>
@@ -27,7 +28,7 @@ const Book: React.FC<BookProps> = ({
       </Link>
     </div>
     <div className={styles.created}>
-      {moment(createAt).format("MM-DD-YYYY hh:mm a")}
+      {moment(createdAt).format("MM-DD-YYYY hh:mm a")}
     </div>
     <div className={styles.tooltips}>
       <Tooltip title={url}>
@@ -69,7 +70,8 @@ const Book: React.FC<BookProps> = ({
       </Tooltip>
     </div>
   </div>
-);
+  );
+};
 
 
 export default Book;
